@@ -1,0 +1,33 @@
+{
+	"name": "shadow-commerce",
+	"version": "1.0.0",
+	"description": "An Ecommerce website",
+	"main": "server.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/leanderpaul/shadow-commerce.git"
+	},
+	"keywords": [
+		"shadowKingdom",
+		"Ecommerce",
+		"shadow-commerce"
+	],
+	"author": "Shadow Lord",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/leanderpaul/shadow-commerce/issues"
+	},
+	"homepage": "https://github.com/leanderpaul/shadow-commerce#readme",
+	"dependencies": {
+		"dotenv": "^8.1.0",
+		"express": "^4.17.1",
+		"mongoose": "^5.6.13",
+		"uuid": "^3.3.3"
+	},
+	"devDependencies": {
+		"debug": "^4.1.1"
+	}
+}
