@@ -11,6 +11,11 @@ const mongoose = require('mongoose');
 const debug = require('debug')('server');
 
 /**
+ * Loading code into cache by importing them
+ */
+require('./models');
+
+/**
  * Importing the env variables to constants
  */
 const port = process.env.PORT;

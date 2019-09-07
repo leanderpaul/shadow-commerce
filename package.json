@@ -22,10 +22,11 @@
 	},
 	"homepage": "https://github.com/leanderpaul/shadow-commerce#readme",
 	"dependencies": {
+		"bcryptjs": "^2.4.3",
 		"dotenv": "^8.1.0",
 		"express": "^4.17.1",
 		"mongoose": "^5.6.13",
-		"uuid": "^3.3.3"
+		"uniqid": "^5.0.3"
 	},
 	"devDependencies": {
 		"debug": "^4.1.1"

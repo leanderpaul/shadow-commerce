@@ -43,14 +43,14 @@ const users = {
 	},
 	firstName: {
 		type: String,
-		required: false,
+		required: true,
 		validator: 'alphabets',
 		description: 'first name of the user',
 		example: 'tester'
 	},
 	lastName: {
 		type: String,
-		required: false,
+		required: true,
 		validator: 'alphabets',
 		description: 'last name of the user',
 		example: 'one'
@@ -60,6 +60,12 @@ const users = {
 		required: true,
 		description: 'contains the list of items the user has added into the cart.',
 		example: [{ item: '', quantity: 2 }]
+	},
+	changePassword: {
+		type: String,
+		required: false,
+		description: 'contains a 256 bit string that can be used to change the password',
+		example: ''
 	}
 };
 ```
@@ -114,6 +120,11 @@ const products = {
 		description: 'name of the product',
 		example: 'blue water bottle'
 	},
+	image: {
+		type: String,
+		required: true,
+		description: 'Image file showing the product'
+	},
 	brand: {
 		type: String,
 		required: true,
@@ -166,7 +177,7 @@ const transactions = {
 		example: ObjectId('')
 	},
 	tid: {
-		type: Number,
+		type: String,
 		required: true,
 		unique: true,
 		description: 'contains the id of the transaction',
