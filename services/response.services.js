@@ -10,6 +10,9 @@
  * 		- 3 for shop
  * 		- 4 for cart
  * 		- 5 for comments
+ * 		- 6 for product
+ * 		- 7 for transaction
+ * 		- 9 for strange requests
  * - the second digit provides insight on whether it is a success or an error
  *    - 2 for success
  *    - 4 for error
@@ -77,5 +80,13 @@ const errorResponse = {
 	4404: 'Item not present in cart !',
 	5400: 'Rating value is invalid !',
 	5401: 'Rating is not present !',
-	5402: 'Comment content is not present !'
+	5402: 'Comment content is not present !',
+	6400: 'Product name is invalid !',
+	6401: 'Image for product not provided !',
+	6402: 'Product brand is not valid !',
+	6403: 'Product category is not valid !',
+	6404: 'Product description is not valid !',
+	6405: 'Product stock not provided !',
+	6406: 'Product price not provided !',
+	9001: 'Your request is not valid !'
 };

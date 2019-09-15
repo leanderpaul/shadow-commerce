@@ -14,6 +14,8 @@ const debug = require('debug')('server');
  * Loading code into cache by importing them
  */
 require('./models');
+const { initializeMiddlewares } = require('./services').middlewares;
+const routes = require('./routes');
 
 /**
  * Importing the env variables to constants
@@ -29,6 +31,16 @@ app.listen(port, () => debug(`Server listening in port ${port}`));
 mongoose.connect(db, { useCreateIndex: true, useNewUrlParser: true });
 mongoose.connection.on('connected', () => debug(`DB connection to ${db} established successfully`));
 mongoose.connection.on('error', err => debug(`DB Connection Error has occured\n${err}`));
+
+/**
+ * Setting up middlewares
+ */
+initializeMiddlewares(app);
+
+/**
+ * Handling routes
+ */
+app.use('/', routes);
 
 /**
  * Handling routes that are not present in the server.

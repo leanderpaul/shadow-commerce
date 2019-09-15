@@ -9,7 +9,8 @@ const uniqid = require('uniqid');
  */
 const item = {
 	itemId: {
-		type: Number,
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'product',
 		required: true
 	},
 	quantity: {
@@ -21,36 +22,44 @@ const item = {
 /**
  * Defining the schema of the transaction.
  */
-const transactionSchema = new mongoose.Schema({
-	tid: {
-		type: String,
-		default: uniqid()
+const transactionSchema = new mongoose.Schema(
+	{
+		tid: String,
+		ofUser: {
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'user',
+			required: true
+		},
+		date: {
+			type: Date,
+			default: Date.now()
+		},
+		items: {
+			type: [item],
+			required: true
+		},
+		total: {
+			type: Number,
+			required: true
+		},
+		isPaid: {
+			type: Boolean,
+			required: true
+		},
+		isDelivered: {
+			type: Boolean,
+			default: false
+		}
 	},
-	ofUser: {
-		type: mongoose.Schema.Types.ObjectId,
-		ref: 'user',
-		required: true
-	},
-	date: {
-		type: Date,
-		default: Date.now()
-	},
-	items: {
-		type: [item],
-		required: true
-	},
-	total: {
-		type: Number,
-		required: true
-	},
-	isPaid: {
-		type: Boolean,
-		required: true
-	},
-	isDelivered: {
-		type: Boolean,
-		default: false
-	}
+	{ strict: 'throw' }
+);
+
+/**
+ * Ensuring that the user does not set the transaction id.
+ */
+transactionSchema.pre('validate', function() {
+	if (this.tid) throw '9001';
+	this.tid = uniqid();
 });
 
 /**

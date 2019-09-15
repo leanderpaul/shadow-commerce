@@ -21,7 +21,7 @@ const users = {
 	},
 	phoneNumber: {
 		type: Number,
-		required: false,
+		required: true,
 		unique: true,
 		validator: '10 digits',
 		description: 'phone number of the user',
@@ -73,9 +73,9 @@ const users = {
 ```js
 const cartItem = {
 	item: {
-		type: String,
+		type: ObjectId,
 		required: true,
-		description: 'Foreign key of products.guid',
+		description: 'Foreign key of products._id',
 		example: ''
 	},
 	quantity: {
@@ -107,7 +107,7 @@ const products = {
 		example: ObjectId('')
 	},
 	pid: {
-		type: Number,
+		type: String,
 		required: true,
 		unique: true,
 		description: 'contains the id of the product',
@@ -225,9 +225,9 @@ const transactions = {
 ```js
 const item = {
 	itemId: {
-		type: Number,
+		type: ObjectId,
 		required: true,
-		description: 'Foreign key of products.pid',
+		description: 'Foreign key of products._id',
 		example: ''
 	},
 	quantity: {

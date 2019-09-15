@@ -54,7 +54,8 @@ user can change the password using this route after he has forgot his password.
 const body = {
 	email: String,
 	user: String(128),
-	key: String(256)
+	password: String,
+	confirmPassword: String
 };
 const successResponse = response(1203);
 const errorResponse = response(1404 | 1405);
