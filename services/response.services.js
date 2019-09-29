@@ -31,6 +31,7 @@
  * @returns {Object} The response object which is to be sent to the user
  */
 module.exports = (responseCode, data) => {
+	if (Number(responseCode) === NaN) responseCode = 9001;
 	let jsonResp =
 		responseCode.toString().charAt(1) == 2
 			? { success: true, msg: successResponse[responseCode] }
@@ -56,6 +57,7 @@ const successResponse = {
 	4200: 'Added to cart successfully !',
 	4201: 'Cart updated successfully !',
 	4202: 'Cart item deleted successfully !',
+	4203: 'Cart info',
 	5200: 'Comments added successfully !'
 };
 
@@ -71,6 +73,9 @@ const errorResponse = {
 	1405: 'Password and confirm password do not match !',
 	1406: 'User does not exist !',
 	1407: 'Password does not match !',
+	1408: 'Authorization token not found !',
+	1409: 'Authorization token expired !',
+	1410: 'Authorization token not valid !',
 	2400: 'First name cannot be empty !',
 	2401: 'Last name cannot be empty !',
 	4400: 'Item does not exist !',

@@ -13,7 +13,7 @@ const debug = require('debug')('controller:auth');
 exports.registerController = async (req, res) => {
 	try {
 		const body = req.body;
-		if (body.password == body.confirmPassword) delete body.confirmPassword;
+		if (body.password === body.confirmPassword) delete body.confirmPassword;
 		else throw '1405';
 		await userModel.create(body);
 		debug(`user created successfully for ${JSON.stringify(body)} !`);

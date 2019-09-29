@@ -50,7 +50,7 @@ const productSchema = new mongoose.Schema(
  */
 productSchema.pre('validate', function() {
 	if (this.pid) throw '9001';
-	this.pid = uniqid;
+	this.pid = uniqid();
 });
 
 /**
